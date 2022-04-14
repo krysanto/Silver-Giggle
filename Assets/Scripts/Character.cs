@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Charaktere : MonoBehaviour
+public class Character : MonoBehaviour
 {
+    public int[] array = { 3, 2, 1 };
     public int Leben;
-    public GameObject Gegner;
     public int Position;
 
 
@@ -19,5 +19,17 @@ public class Charaktere : MonoBehaviour
     void Update()
     {
         
+    }
+
+   public virtual void reduceHealth(int damage)
+    {
+        Leben -= damage;
+        Debug.Log(Leben);
+        Debug.Log(array[3]);
+    }
+
+    public void attack(Character Gegner)
+    {
+        Gegner.reduceHealth(1);
     }
 }

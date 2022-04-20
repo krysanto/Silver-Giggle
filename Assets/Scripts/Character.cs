@@ -32,4 +32,9 @@ public class Character : MonoBehaviour
     {
         Gegner.reduceHealth(1);
     }
+
+    public virtual void printName()
+    {
+        Debug.Log("No Name");
+    }
 }

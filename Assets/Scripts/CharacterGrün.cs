@@ -9,4 +9,9 @@ public class CharacterGrün : Character
         Leben -= 2;
         Debug.Log(Leben);
     }
+
+    public override void printName()
+    {
+        Debug.Log("Grün");
+    }
 }

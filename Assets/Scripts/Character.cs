@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
     {
         Leben -= damage;
         Debug.Log(Leben);
-        Debug.Log(array[3]);
+        Debug.Log(array[2]);
     }
 
     public void attack(Character Gegner)

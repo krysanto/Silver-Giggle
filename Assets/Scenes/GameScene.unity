@@ -984,6 +984,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &614524511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 614524513}
+  - component: {fileID: 614524512}
+  m_Layer: 0
+  m_Name: List of Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &614524512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614524511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8d1a41cdca6bc48895ca30e53563a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BabyDragon: {fileID: 4308223738666852089, guid: fae8d49c9c41af64db7d4ccbc7856cae, type: 3}
+  Dragon: {fileID: 1531306379922520683, guid: 61c55a6a730229c49bf0941204b27f97, type: 3}
+  Demon: {fileID: 2532319906309146344, guid: e8afd3acb8cdcfd43a529d25903525f3, type: 3}
+  Wraith: {fileID: 6661203227409534087, guid: 924d1ec633a984d46ab4c92e939e352b, type: 3}
+--- !u!4 &614524513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614524511}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &652665498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,6 +1223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1: {fileID: 29766883}
   Player2: {fileID: 1324150615}
+  GameControler: {fileID: 983300708}
 --- !u!4 &983300707
 Transform:
   m_ObjectHideFlags: 0
@@ -1205,18 +1253,14 @@ MonoBehaviour:
   CharacterFolder: {fileID: 33409072}
   CharacterList: []
   CharactersOwned: 0
-  CharactersDisplayed:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  CharactersDisplayed: []
+  EnemyList: []
   BabyDragon: {fileID: 8323684251214702841, guid: fae8d49c9c41af64db7d4ccbc7856cae, type: 3}
-  Dragon: {fileID: 4797514698819323900, guid: 61c55a6a730229c49bf0941204b27f97, type: 3}
-  Demon: {fileID: 1496687471552929145, guid: 84cdf6b00661e1b46b0e66d442d8ca9d, type: 3}
+  Dragon: {fileID: 720004437880722964, guid: 924d1ec633a984d46ab4c92e939e352b, type: 3}
+  Demon: {fileID: 8038947557498572044, guid: e8afd3acb8cdcfd43a529d25903525f3, type: 3}
   Wraith: {fileID: 720004437880722964, guid: 924d1ec633a984d46ab4c92e939e352b, type: 3}
+  EnemyController: {fileID: 614524512}
+  Round: 0
 --- !u!1 &997845654
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,14 +9,25 @@ public class GameController : MonoBehaviour
     public int CharactersOwned = 0;
     public List<Character> CharactersDisplayed = new List<Character>();
 
+    public List<Character> EnemyList = new List<Character>();
+
     public GameObject BabyDragon;
     public GameObject Dragon;
     public GameObject Demon;
     public GameObject Wraith;
 
+    public Enemies EnemyController;
+
+    public int Round = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    public void GenerateEnemies(List<Character> Enemies)
+    {
+
     }
 
     public void AddCharacterToList(Character CharacterToAdd)
@@ -45,17 +56,35 @@ public class GameController : MonoBehaviour
 
     public void PrintCharacter(Character CharacterToPrint, int x)
     {
-        Instantiate(CharacterToPrint, new Vector3(x*2, 0, 0), Quaternion.identity, CharacterFolder); 
+        Instantiate(CharacterToPrint, new Vector3(-3 - x, x%2*2-1, 0), Quaternion.identity, CharacterFolder); 
     }
 
     private void PrintCharacters()
     {
-        GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("Character");
-        foreach (GameObject i in toDestroy) Destroy(i.gameObject);
-        int counter = 0;
-        foreach (Character c in CharactersDisplayed) {
-            PrintCharacter(c, counter);
-            counter++;
+        if(CharactersDisplayed.Count > 0) { 
+            int counter = 0;
+            foreach (Character c in CharactersDisplayed) {
+                PrintCharacter(c, counter);
+                counter++;
+            }
+        }
+    }
+
+    public void PrintEnemy(Character EnemyToPrint, int x)
+    {
+        Instantiate(EnemyToPrint, new Vector3(3 + x, x % 2 * 2 - 1, 0), Quaternion.Euler(new Vector3(0,180,0)), CharacterFolder);
+    }
+
+    public void PrintEnemies()
+    {
+        if (EnemyList.Count > 0)
+        {
+            int counter = 0;
+            foreach (Character c in EnemyList)
+            {
+                PrintEnemy(c, counter);
+                counter++;
+            }
         }
     }
 
@@ -63,6 +92,24 @@ public class GameController : MonoBehaviour
     {
         CharactersDisplayed = CharacterList;
         PrintCharacters();
+    }
+
+    public void NextRound()
+    {
+        Debug.Log("Next Round");
+        if ((EnemyList = EnemyController.getEnemies(Round)) != null)
+        {
+            ClearCharacters();
+            PrintCharacters();
+            PrintEnemies();
+        }
+        Round++;
+    }
+
+    public void ClearCharacters()
+    {
+        GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("Character");
+        foreach (GameObject i in toDestroy) Destroy(i.gameObject);
     }
 
     // Update is called once per frame

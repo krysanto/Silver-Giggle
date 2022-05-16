@@ -7,7 +7,7 @@ public class Character : MonoBehaviour
     public int[] array = { 3, 2, 1 };
     public int Leben;
     public int Position;
-
+    public int Schaden = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -25,16 +25,22 @@ public class Character : MonoBehaviour
     {
         Leben -= damage;
         Debug.Log(Leben);
-        Debug.Log(array[2]);
     }
 
-    public void attack(Character Gegner)
+    public bool attack(Character Gegner)
     {
-        Gegner.reduceHealth(1);
+        Gegner.reduceHealth(Schaden);
+        if (Gegner.Leben <= 0) return true;
+        return false;
     }
 
     public virtual void printName()
     {
         Debug.Log("No Name");
+    }
+
+    public void DestroyMe()
+    {
+        Destroy(this.gameObject);
     }
 }

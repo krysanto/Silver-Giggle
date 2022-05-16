@@ -6,7 +6,12 @@ public class CharacterGrün : Character
 {
     public override void reduceHealth(int damage)
     {
-        Leben -= 2;
+        Leben -= damage;
+        if (Leben <= 0)
+        {
+            Destroy(this.gameObject);
+            Debug.Log("Died");
+        }
         Debug.Log(Leben);
     }
 

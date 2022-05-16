@@ -5,11 +5,13 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public Transform CharacterFolder;
-    public List<Character> CharacterList = new List<Character>();
+
     public int CharactersOwned = 0;
+    public List<Character> CharacterList = new List<Character>();
     public List<Character> CharactersDisplayed = new List<Character>();
 
     public List<Character> EnemyList = new List<Character>();
+    public List<Character> EnemiesDisplayed = new List<Character>();
 
     public GameObject BabyDragon;
     public GameObject Dragon;
@@ -54,25 +56,26 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void PrintCharacter(Character CharacterToPrint, int x)
+    public Character PrintCharacter(Character CharacterToPrint, int x)
     {
-        Instantiate(CharacterToPrint, new Vector3(-3 - x, x%2*2-1, 0), Quaternion.identity, CharacterFolder); 
+        return Instantiate(CharacterToPrint, new Vector3(-3 - x, x%2*2-1, 0), Quaternion.identity, CharacterFolder); 
     }
 
     private void PrintCharacters()
     {
-        if(CharactersDisplayed.Count > 0) { 
+        if(CharacterList.Count > 0)
+        { 
             int counter = 0;
-            foreach (Character c in CharactersDisplayed) {
-                PrintCharacter(c, counter);
+            foreach (Character c in CharacterList) {
+                CharactersDisplayed.Add( PrintCharacter(c, counter) );
                 counter++;
             }
         }
     }
 
-    public void PrintEnemy(Character EnemyToPrint, int x)
+    public Character PrintEnemy(Character EnemyToPrint, int x)
     {
-        Instantiate(EnemyToPrint, new Vector3(3 + x, x % 2 * 2 - 1, 0), Quaternion.Euler(new Vector3(0,180,0)), CharacterFolder);
+        return Instantiate(EnemyToPrint, new Vector3(3 + x, x % 2 * 2 - 1, 0), Quaternion.Euler(new Vector3(0,180,0)), CharacterFolder);
     }
 
     public void PrintEnemies()
@@ -82,7 +85,7 @@ public class GameController : MonoBehaviour
             int counter = 0;
             foreach (Character c in EnemyList)
             {
-                PrintEnemy(c, counter);
+                EnemiesDisplayed.Add(PrintEnemy(c, counter));
                 counter++;
             }
         }
@@ -90,7 +93,7 @@ public class GameController : MonoBehaviour
 
     private void UpdateCharactersDisplayed()
     {
-        CharactersDisplayed = CharacterList;
+        ClearCharacters();
         PrintCharacters();
     }
 
@@ -110,8 +113,19 @@ public class GameController : MonoBehaviour
     {
         GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject i in toDestroy) Destroy(i.gameObject);
+        CharactersDisplayed.Clear();
+        EnemiesDisplayed.Clear();
     }
 
+    public List<Character> GetCharacters()
+    {
+        return CharactersDisplayed;
+    }
+
+    public List<Character> GetEnemies()
+    {
+        return EnemiesDisplayed;
+    }
     // Update is called once per frame
     void Update()
     {

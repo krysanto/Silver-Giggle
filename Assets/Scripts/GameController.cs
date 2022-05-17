@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour
 
     public Character PrintCharacter(Character CharacterToPrint, int x)
     {
-        return Instantiate(CharacterToPrint, new Vector3(-3 - x, x%2*2-1, 0), Quaternion.identity, CharacterFolder); 
+        return Instantiate(CharacterToPrint, new Vector3(CharacterFolder.position.x + -3 - x, x%2*2-1, CharacterFolder.position.z), Quaternion.identity, CharacterFolder); 
     }
 
     private void PrintCharacters()
@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour
 
     public Character PrintEnemy(Character EnemyToPrint, int x)
     {
-        return Instantiate(EnemyToPrint, new Vector3(3 + x, x % 2 * 2 - 1, 0), Quaternion.Euler(new Vector3(0,180,0)), CharacterFolder);
+        return Instantiate(EnemyToPrint, new Vector3(CharacterFolder.position.x + 3 + x, x % 2 * 2 - 1, CharacterFolder.position.z), Quaternion.Euler(new Vector3(0,180,0)), CharacterFolder);
     }
 
     public void PrintEnemies()

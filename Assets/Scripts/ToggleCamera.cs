@@ -6,6 +6,7 @@ public class ToggleCamera : MonoBehaviour
 {
     public GameObject MainCamera;
     public GameObject ShopCamera;
+    public Transform CharacterFolder;
 
     void Start(){
         MainCamera.SetActive(true);
@@ -14,8 +15,9 @@ public class ToggleCamera : MonoBehaviour
 
 
     public void ChangeCamera(){
-        MainCamera.SetActive(!MainCamera.active);
-        ShopCamera.SetActive(!ShopCamera.active);
+        MainCamera.SetActive(!MainCamera.activeInHierarchy);
+        ShopCamera.SetActive(!ShopCamera.activeInHierarchy);
+        CharacterFolder.transform.position = new Vector3(MainCamera.activeInHierarchy ? 0 : 30, 0 , 0 );
     }
 
 }

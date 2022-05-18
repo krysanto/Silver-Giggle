@@ -12,7 +12,7 @@ public class Enemies : MonoBehaviour
     static int RoundsCreated = 2;
 
     static public int[,] EnemyGroups = {
-        { 2, 2, 3, 4, 0, 0, 0 },
+        { 2, 2, 2, 2, 0, 0, 0 },
         { 2, 3, 4, 4, 0, 0, 0 }
     };
 

@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public int[] array = { 3, 2, 1 };
+    enum States
+    {
+        Idle,
+        Attack,
+        SpecialAttack,
+        Hurt,
+        Death
+    }
+    States Status;
+    public Animator myAnimator;
     public int Leben;
     public int Position;
-    public int Schaden = 50;
+    public int Schaden;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        Status = States.Idle;
         Leben = 100;
+        Schaden = 25;
     }
 
     // Update is called once per frame
@@ -23,12 +34,18 @@ public class Character : MonoBehaviour
 
    public virtual void reduceHealth(int damage)
     {
+        //myAnimator.Play("Dragon_Hurt");
+        Status = States.Idle;
+        Debug.Log("Schaden -" + Leben);
         Leben -= damage;
         Debug.Log(Leben);
     }
 
-    public bool attack(Character Gegner)
+    public virtual bool attack(Character Gegner)
     {
+        Debug.Log("Playing Animation Dragon_Attack");
+        myAnimator.Play("Dragon_Attack");
+        Status = States.Attack;
         Gegner.reduceHealth(Schaden);
         if (Gegner.Leben <= 0) return true;
         return false;
@@ -41,6 +58,14 @@ public class Character : MonoBehaviour
 
     public void DestroyMe()
     {
+        myAnimator.Play("Dragon_Death");
+        Status = States.Death;
         Destroy(this.gameObject);
+    }
+
+    public void Finished()
+    {
+        Status = States.Idle;
+        myAnimator.Play("Dragon_Idle");
     }
 }

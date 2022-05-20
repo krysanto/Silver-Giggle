@@ -126,6 +126,7 @@ public class GameController : MonoBehaviour
     {
         return EnemiesDisplayed;
     }
+
     // Update is called once per frame
     void Update()
     {

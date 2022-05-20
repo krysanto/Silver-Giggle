@@ -32,40 +32,43 @@ public class Character : MonoBehaviour
         
     }
 
-   public virtual void reduceHealth(int damage)
+   public virtual void ReduceHealth(int damage)
     {
-        //myAnimator.Play("Dragon_Hurt");
-        Status = States.Idle;
+        Status = States.Hurt;
         Debug.Log("Schaden -" + Leben);
         Leben -= damage;
         Debug.Log(Leben);
     }
 
-    public virtual bool attack(Character Gegner)
+    public virtual bool Attack(Character Gegner)
     {
-        Debug.Log("Playing Animation Dragon_Attack");
-        myAnimator.Play("Dragon_Attack");
         Status = States.Attack;
-        Gegner.reduceHealth(Schaden);
+        Gegner.ReduceHealth(Schaden);
         if (Gegner.Leben <= 0) return true;
         return false;
     }
 
-    public virtual void printName()
+    public virtual void PrintName()
     {
         Debug.Log("No Name");
     }
 
-    public void DestroyMe()
+    public virtual void Die()
     {
-        myAnimator.Play("Dragon_Death");
-        Status = States.Death;
+
+    }
+
+    public virtual void DestroyMe()
+    {
         Destroy(this.gameObject);
     }
 
-    public void Finished()
+    public virtual void Finished()
     {
         Status = States.Idle;
-        myAnimator.Play("Dragon_Idle");
+    }
+
+    private void FixedUpdate()
+    {
     }
 }

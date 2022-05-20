@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2942850879000518445}
   - component: {fileID: 4097302629131881075}
-  - component: {fileID: 6357024493117563804}
   - component: {fileID: 4164521581730371853}
+  - component: {fileID: 3712613831668036403}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Character
@@ -52,22 +52,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6357024493117563804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655620662823339372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b41ad38916fee743bb813b57fa9e6c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myAnimator: {fileID: 4097302629131881075}
-  Leben: 0
-  Position: 0
-  Schaden: 50
 --- !u!212 &4164521581730371853
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,3 +103,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3712613831668036403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655620662823339372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79777b5e559356344925ce1b2265cc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimator: {fileID: 4097302629131881075}
+  Leben: 0
+  Position: 0
+  Schaden: 0

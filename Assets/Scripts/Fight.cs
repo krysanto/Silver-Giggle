@@ -49,19 +49,6 @@ public class Fight : MonoBehaviour
         }
     }
 
-    /*public IEnumerator CombatCycle()
-    {
-        int I = 10;
-        while (Characters.Count > 0 && Enemies.Count > 0 && I > 0)
-        {
-            Debug.Log("Fighting...");
-            StartCoroutine(BattleEachother(Characters.Find(x => true), Enemies.Find(x => true)));
-            I--;
-            yield return new WaitForSeconds(20);
-        }
-        Debug.Log("Combat Ended");
-    }*/
-
     public IEnumerator BattleEachother(Character First, Character Second)
     {
         bool turnorder = true;
@@ -72,51 +59,26 @@ public class Fight : MonoBehaviour
         while (!allydead && !enemydead)
         {
             if (turnorder) { 
-                enemydead = First.attack(Second);
+                enemydead = First.Attack(Second);
                 turnorder = false;
 
                 if (enemydead)
                 {
                     Enemies.Remove(Second);
-                    Second.DestroyMe();
+                    Second.Die();
                 }
             } else { 
-                allydead = Second.attack(First);
+                allydead = Second.Attack(First);
                 turnorder = true;
 
                 if (allydead)
                 {
                     Characters.Remove(First);
-                    First.DestroyMe();
+                    First.Die();
                 }
             }
             yield return new WaitForSeconds(1);
             if(enemydead || allydead) FightFinished = true;
         }
-
-        /*while(conloop)
-        {
-
-            Debug.Log("First Attack Second");
-
-            
-            bool enemydead = First.attack(Second);
-            bool allydead = Second.attack(First);
-
-            yield return new WaitForSeconds(3);
-
-            if (enemydead)
-            {
-                Enemies.Remove(Second);
-                Second.DestroyMe();
-                conloop = false;
-            }
-            if (allydead)
-            {
-                Characters.Remove(First);
-                First.DestroyMe();
-                conloop = false;
-            }
-        }*/
     }
 }

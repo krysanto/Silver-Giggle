@@ -11,6 +11,8 @@ public class Fight : MonoBehaviour
     public Character Enemy;
     public GameController GameController;
 
+    public Shop Shop;
+
     //Camerachange script object
     public GameObject changeCamera;
     
@@ -19,6 +21,7 @@ public class Fight : MonoBehaviour
 
     public void StartCombat()
     {
+        Shop.CloseShop();
         Debug.Log("Starting Combat!");
 
         Characters = GameController.GetCharacters();
@@ -50,6 +53,7 @@ public class Fight : MonoBehaviour
         //StartCoroutine(Waiter());
         ToggleCamera cameraScript = changeCamera.GetComponent<ToggleCamera>();
         cameraScript.ChangeCamera();
+        Shop.OpenShop();
         this.enabled = false;
         //changeCamera.GetComponent<ToggleCamera>().ChangeCamera();
 
@@ -77,6 +81,7 @@ public class Fight : MonoBehaviour
                 {
                     CombatFinished = true;
                     Debug.Log("Combat Ended");
+                    GameController.ClearEnemies();
                 }
             }
         }

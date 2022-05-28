@@ -111,9 +111,15 @@ public class GameController : MonoBehaviour
 
     public void ClearCharacters()
     {
-        GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("Character");
-        foreach (GameObject i in toDestroy) Destroy(i.gameObject);
+        foreach (Character i in CharactersDisplayed) Destroy(i.gameObject);
+        foreach (Character i in EnemiesDisplayed) Destroy(i.gameObject);
         CharactersDisplayed.Clear();
+        EnemiesDisplayed.Clear();
+    }
+    
+    public void ClearEnemies()
+    {
+        foreach (Character i in EnemiesDisplayed) Destroy(i.gameObject);
         EnemiesDisplayed.Clear();
     }
 

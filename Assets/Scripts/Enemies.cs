@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
+    public Character Knight;
     public Character BabyDragon; 
     public Character Dragon;
     public Character Demon;
@@ -25,7 +26,7 @@ public class Enemies : MonoBehaviour
         {
             switch (EnemyGroups[Round, iter])
             {
-                case 0: break;
+                case 0: EnemyGroup.Add(Knight); break;
                 case 1: EnemyGroup.Add(BabyDragon); break;
                 case 2: EnemyGroup.Add(Dragon); break;
                 case 3: EnemyGroup.Add(Demon); break;
@@ -35,5 +36,18 @@ public class Enemies : MonoBehaviour
             counter++;
         }
         return EnemyGroup;
+    }
+
+    public Character GetCharacter(int option)
+    {
+        switch (option)
+        {
+            case 0: return Knight;
+            case 1: return BabyDragon;
+            case 2: return Dragon;
+            case 3: return Demon;
+            case 4: return Wraith;
+            default: return null;
+        }
     }
 }

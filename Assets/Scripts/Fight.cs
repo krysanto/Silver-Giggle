@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class Fight : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Fight : MonoBehaviour
     public List<Character> Enemies;
     public Character Enemy;
     public GameController GameController;
+
+    //Camerachange script object
+    public GameObject changeCamera;
     
     public bool FightFinished = true;
     public bool CombatFinished = true;
@@ -29,8 +33,37 @@ public class Fight : MonoBehaviour
 
     }
 
+    private IEnumerator Waiter()
+    {
+        Debug.Log("Waiting for 7 seconds");
+        yield return new WaitForSeconds (7);
+        Debug.Log("Finished Waiting");
+        Debug.Log("Before scenechange");
+        
+        Debug.Log("AFter scenechange");
+        
+    }
+
+    private  void FinishFight()
+    {
+        Debug.Log("Fight is finished, changeing scene");
+        //StartCoroutine(Waiter());
+        ToggleCamera cameraScript = changeCamera.GetComponent<ToggleCamera>();
+        cameraScript.ChangeCamera();
+        this.enabled = false;
+        //changeCamera.GetComponent<ToggleCamera>().ChangeCamera();
+
+
+    }
+
     private void Update()
     {
+        if (CombatFinished && FightFinished)
+        {
+            FinishFight();
+        }
+
+
         if (!CombatFinished)
         {
             if (FightFinished)

@@ -92,7 +92,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void UpdateCharactersDisplayed()
+    public void UpdateCharactersDisplayed()
     {
         ClearCharacters();
         PrintCharacters();

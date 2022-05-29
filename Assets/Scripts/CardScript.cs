@@ -19,6 +19,11 @@ public class CardScript : MonoBehaviour
     public Text Textbox;
     public Text Goldbox;
 
+    private void Start()
+    {
+        GenerateShop();    
+    }
+
     public void GenerateShop()
     {
         active = true;

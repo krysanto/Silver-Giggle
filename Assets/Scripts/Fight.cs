@@ -48,6 +48,9 @@ public class Fight : MonoBehaviour
         Debug.Log("AFter scenechange");
         ToggleCamera cameraScript = changeCamera.GetComponent<ToggleCamera>();
         cameraScript.ChangeCamera();
+        GameController.ClearEnemies();
+        GameController.Gold += 3;
+        GameController.UpdateCharactersDisplayed();
         Shop.OpenShop();
         this.enabled = false;
     }
@@ -75,7 +78,6 @@ public class Fight : MonoBehaviour
                     jumpedToFinish = false;
                     CombatFinished = true;
                     Debug.Log("Combat Ended");
-                    GameController.ClearEnemies();
                 }
             }
         }

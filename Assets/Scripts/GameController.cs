@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public Enemies EnemyController;
 
     public int Round = 0;
+    public int Gold = 0;
 
     // Start is called before the first frame update
     void Start()

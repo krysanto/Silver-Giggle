@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     public int Leben;
     public int Position;
     public int Schaden;
+    public int Cost = 3;
 
     // Start is called before the first frame update
     void Awake()

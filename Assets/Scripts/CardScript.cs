@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardScript : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class CardScript : MonoBehaviour
 
     bool active;
 
+    public Text Textbox;
+    public Text Goldbox;
+
     public void GenerateShop()
     {
         active = true;
@@ -26,6 +30,8 @@ public class CardScript : MonoBehaviour
         }
         createdCharacter = Instantiate(myCharacter, new Vector3(thisCard.position.x, thisCard.position.y, thisCard.position.z - 1), Quaternion.Euler(new Vector3(0, 180, 0)), thisCard);
         createdCharacter.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+        Textbox.text = myCharacter.Cost.ToString();
+        Textbox.text += "\n";
     }
 
     public void CloseShop()
@@ -38,13 +44,20 @@ public class CardScript : MonoBehaviour
 
     public void PurchaseCharacter()
     {
-        if (active == true)
+        if (active == true && GameController.Gold - myCharacter.Cost >= 0)
         {
             active = false;
             Debug.Log("Purchasing Character");
+            GameController.Gold -= myCharacter.Cost;
+            Textbox.text = "";
             GameController.AddCharacterToList(myCharacter);
             Destroy(createdCharacter.gameObject);
         }
+    }
+
+    public void Update()
+    {
+        Goldbox.text = GameController.Gold.ToString() + " Gold";
     }
 }
 

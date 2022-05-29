@@ -4,72 +4,53 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    enum States
-    {
-        Idle,
-        Attack,
-        SpecialAttack,
-        Hurt,
-        Death
-    }
-    States Status;
+    // points at the Animator of the Character
     public Animator myAnimator;
+
+    // each character has a these values
     public int Leben;
-    public int Position;
     public int Schaden;
     public int Cost = 3;
 
-    // Start is called before the first frame update
-    void Awake()
+    // Start is called when a the Game Starts, if you want the Stats to be different per Character you can make an onverride function in each child and change the stats
+    public virtual void Awake()
     {
-        Status = States.Idle;
         Leben = 100;
         Schaden = 25;
+        Cost = 3;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // take damage
    public virtual void ReduceHealth(int damage)
     {
-        Status = States.Hurt;
         Debug.Log("Schaden -" + Leben);
         Leben -= damage;
         Debug.Log(Leben);
     }
 
+    // attack an enemy
     public virtual bool Attack(Character Gegner)
     {
-        Status = States.Attack;
         Gegner.ReduceHealth(Schaden);
         if (Gegner.Leben <= 0) return true;
         return false;
     }
 
-    public virtual void PrintName()
-    {
-        Debug.Log("No Name");
-    }
-
+    // die (every child inserts its die animation here)
     public virtual void Die()
     {
 
     }
 
+    // destroy this gameObject
     public virtual void DestroyMe()
     {
         Destroy(this.gameObject);
     }
 
+    // go into idle state (every child inserts its idle animation here)
     public virtual void Finished()
     {
-        Status = States.Idle;
-    }
 
-    private void FixedUpdate()
-    {
     }
 }

@@ -5,20 +5,29 @@ using UnityEngine.UI;
 
 public class CardScript : MonoBehaviour
 {
+    // displays which character(number) was picked for this card
     public int option;
-    public Enemies ListOfCharacters;
-    public Character myCharacter;
-
-    public Transform thisCard;
-    public Character createdCharacter;
     
+    // displays which character was picked for this card and points to the clone of the character
+    public Character myCharacter;
+    public int myCharacterCost;
+    public Character createdCharacter;
+
+    // place where the character is supposed to be created
+    public Transform thisCard;
+
+    // other scripts used in this one, GameController to subtract money when a card is bought and ListofCharacters to see what Characters exist
+    public Enemies ListOfCharacters;
     public GameController GameController;
 
-    bool active;
+    // shows whether or not a card can be bought or was already bought
+    bool active = true;
 
+    // all textboxes where the text will be changed
     public Text Textbox;
     public Text Goldbox;
 
+    // at the start of the program generates the first shop
     private void Start()
     {
         GenerateShop();    
@@ -27,39 +36,56 @@ public class CardScript : MonoBehaviour
     public void GenerateShop()
     {
         active = true;
+        // tries to pick a random character until a character could be assigned
         myCharacter = null;
         while (myCharacter == null)
         {
-            option = Random.Range(0, 5);
+            option = Random.Range(1, 6);
             myCharacter = ListOfCharacters.GetCharacter(option);
         }
+        // instantiate creates a copy of Character, - Instantiate(Object to Instantiate, Coordinates, Rotation, ordner where it should be moved) 
         createdCharacter = Instantiate(myCharacter, new Vector3(thisCard.position.x, thisCard.position.y, thisCard.position.z - 1), Quaternion.Euler(new Vector3(0, 180, 0)), thisCard);
+        // changed the size of the character to fit the card
         createdCharacter.transform.localScale = new Vector3(0.75f, 0.75f, 1);
-        Textbox.text = myCharacter.Cost.ToString();
+        // makes the card display the cost of the character
+        Debug.Log("Cost " + myCharacter.Cost);
+            // BUG: FOR SOME REASON WILL NOT WORK
+            Textbox.text = myCharacter.Cost.ToString();
+            // USED FOR NOW TO BYPASS THE BUG 
+            myCharacterCost = 3;
+            Textbox.text = myCharacterCost.ToString();
         Textbox.text += "\n";
     }
 
     public void CloseShop()
     {
+        // when the shop gets closed and there is still a character in the card, remove the character from the scene
         if (createdCharacter != null)
         {
             Destroy(createdCharacter.gameObject);
         }
+        myCharacter = null;
     }
 
     public void PurchaseCharacter()
     {
+        // if the card is still active and i have enough Gold to purchase the character
         if (active == true && GameController.Gold - myCharacter.Cost >= 0)
         {
             active = false;
             Debug.Log("Purchasing Character");
-            GameController.Gold -= myCharacter.Cost;
-            Textbox.text = "";
+            GameController.Gold -= myCharacterCost;
+            Textbox.text = "0\n";
+            // adds the character to list of allies
             GameController.AddCharacterToList(myCharacter);
+            myCharacter = null;
+            // destroys the clone that is still inside the card
             Destroy(createdCharacter.gameObject);
         }
     }
 
+    // every frame updates how much gold you have 
+    // could be moved to whenever a function changes the gold total
     public void Update()
     {
         Goldbox.text = GameController.Gold.ToString() + " Gold";

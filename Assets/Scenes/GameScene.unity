@@ -1036,10 +1036,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   option: 0
-  ListOfCharacters: {fileID: 614524512}
   myCharacter: {fileID: 0}
-  thisCard: {fileID: 489924204}
   createdCharacter: {fileID: 0}
+  thisCard: {fileID: 489924204}
+  ListOfCharacters: {fileID: 614524512}
   GameController: {fileID: 983300708}
   Textbox: {fileID: 1049824341}
   Goldbox: {fileID: 2114032252}
@@ -1071,7 +1071,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: GameCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1620,10 +1620,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   option: 0
-  ListOfCharacters: {fileID: 614524512}
   myCharacter: {fileID: 0}
-  thisCard: {fileID: 731055840}
   createdCharacter: {fileID: 0}
+  thisCard: {fileID: 731055840}
+  ListOfCharacters: {fileID: 614524512}
   GameController: {fileID: 983300708}
   Textbox: {fileID: 745287064}
   Goldbox: {fileID: 2114032252}
@@ -3030,15 +3030,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caccd1e1486e2c14cb8af40252656cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Characters: []
-  Character: {fileID: 0}
+  Allies: []
   Enemies: []
-  Enemy: {fileID: 0}
   GameController: {fileID: 983300708}
   Shop: {fileID: 62242008}
   changeCamera: {fileID: 1742617385}
   FightFinished: 1
   CombatFinished: 1
+  jumpedToFinish: 1
 --- !u!1 &1459713374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,10 +3163,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   option: 0
-  ListOfCharacters: {fileID: 614524512}
   myCharacter: {fileID: 0}
-  thisCard: {fileID: 1460143349}
   createdCharacter: {fileID: 0}
+  thisCard: {fileID: 1460143349}
+  ListOfCharacters: {fileID: 614524512}
   GameController: {fileID: 983300708}
   Textbox: {fileID: 1603736045}
   Goldbox: {fileID: 2114032252}
@@ -3337,7 +3336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509908063}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 201456265}

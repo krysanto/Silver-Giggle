@@ -18,6 +18,8 @@ public class Fight : MonoBehaviour
     
     public bool FightFinished = true;
     public bool CombatFinished = true;
+    //Additional bool to not execute FinishFight() twice.
+    public bool jumpedToFinish = true;
 
     public void StartCombat()
     {
@@ -44,30 +46,21 @@ public class Fight : MonoBehaviour
         Debug.Log("Before scenechange");
         
         Debug.Log("AFter scenechange");
-        
-    }
-
-    private  void FinishFight()
-    {
-        Debug.Log("Fight is finished, changeing scene");
-        //StartCoroutine(Waiter());
         ToggleCamera cameraScript = changeCamera.GetComponent<ToggleCamera>();
         cameraScript.ChangeCamera();
         Shop.OpenShop();
         this.enabled = false;
-        //changeCamera.GetComponent<ToggleCamera>().ChangeCamera();
+    }
 
-
+    private async void FinishFight()
+    {
+        jumpedToFinish = true;
+        Debug.Log("Fight is finished, changeing scene");
+        StartCoroutine(Waiter());
     }
 
     private void Update()
     {
-        if (CombatFinished && FightFinished)
-        {
-            FinishFight();
-        }
-
-
         if (!CombatFinished)
         {
             if (FightFinished)
@@ -79,10 +72,18 @@ public class Fight : MonoBehaviour
                     StartCoroutine(BattleEachother(Characters.Find(x => true), Enemies.Find(x => true)));
                 } else
                 {
+                    jumpedToFinish = false;
                     CombatFinished = true;
                     Debug.Log("Combat Ended");
                     GameController.ClearEnemies();
                 }
+            }
+        }
+        else
+        {
+            if (!jumpedToFinish)
+            {
+                FinishFight();
             }
         }
     }

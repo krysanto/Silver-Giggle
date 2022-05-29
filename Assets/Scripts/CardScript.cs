@@ -11,6 +11,9 @@ public class CardScript : MonoBehaviour
     // displays which character was picked for this card and points to the clone of the character
     public Character myCharacter;
     public int myCharacterCost;
+    // variables used for displaying character stats
+    public int HP;
+    public int damage;
     public Character createdCharacter;
 
     // place where the character is supposed to be created
@@ -26,6 +29,7 @@ public class CardScript : MonoBehaviour
     // all textboxes where the text will be changed
     public Text Textbox;
     public Text Goldbox;
+    public Text Statsbox;
 
     // at the start of the program generates the first shop
     private void Start()
@@ -47,6 +51,15 @@ public class CardScript : MonoBehaviour
         createdCharacter = Instantiate(myCharacter, new Vector3(thisCard.position.x, thisCard.position.y, thisCard.position.z - 1), Quaternion.Euler(new Vector3(0, 180, 0)), thisCard);
         // changed the size of the character to fit the card
         createdCharacter.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+        // create statstextbox
+        HP = createdCharacter.Leben;
+        damage = createdCharacter.Schaden;
+        //Statsbox.text = "";
+        Statsbox.text += "HP: ";
+        Statsbox.text += HP.ToString();
+        Statsbox.text += "\nDamage: ";
+        Statsbox.text += damage.ToString();
+        Debug.Log(Statsbox);
         // makes the card display the cost of the character
         Debug.Log("Cost " + myCharacter.Cost);
             // BUG: FOR SOME REASON WILL NOT WORK

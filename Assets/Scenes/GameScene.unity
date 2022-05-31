@@ -1112,6 +1112,7 @@ MonoBehaviour:
   myCharacterCost: 0
   HP: 0
   damage: 0
+  cost: 0
   createdCharacter: {fileID: 0}
   thisCard: {fileID: 489924204}
   ListOfCharacters: {fileID: 614524512}
@@ -1702,6 +1703,7 @@ MonoBehaviour:
   myCharacterCost: 0
   HP: 0
   damage: 0
+  cost: 0
   createdCharacter: {fileID: 0}
   thisCard: {fileID: 731055840}
   ListOfCharacters: {fileID: 614524512}
@@ -1721,7 +1723,7 @@ GameObject:
   - component: {fileID: 745287065}
   - component: {fileID: 745287064}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Cost2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1779,9 +1781,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '3
-
-'
+  m_Text: 
 --- !u!222 &745287065
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2104,10 +2104,6 @@ MonoBehaviour:
   CharactersDisplayed: []
   EnemyList: []
   EnemiesDisplayed: []
-  BabyDragon: {fileID: 8323684251214702841, guid: fae8d49c9c41af64db7d4ccbc7856cae, type: 3}
-  Dragon: {fileID: 720004437880722964, guid: 924d1ec633a984d46ab4c92e939e352b, type: 3}
-  Demon: {fileID: 8038947557498572044, guid: e8afd3acb8cdcfd43a529d25903525f3, type: 3}
-  Wraith: {fileID: 720004437880722964, guid: 924d1ec633a984d46ab4c92e939e352b, type: 3}
   EnemyController: {fileID: 614524512}
   Round: 0
   Gold: 3
@@ -2259,7 +2255,7 @@ GameObject:
   - component: {fileID: 1049824342}
   - component: {fileID: 1049824341}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Cost3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2298,7 +2294,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '3
+  m_Text: '
 
 '
 --- !u!222 &1049824342
@@ -3409,6 +3405,7 @@ MonoBehaviour:
   myCharacterCost: 0
   HP: 0
   damage: 0
+  cost: 0
   createdCharacter: {fileID: 0}
   thisCard: {fileID: 1460143349}
   ListOfCharacters: {fileID: 614524512}
@@ -3651,7 +3648,7 @@ GameObject:
   - component: {fileID: 1603736046}
   - component: {fileID: 1603736045}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Cost1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3709,9 +3706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '3
-
-'
+  m_Text: 
 --- !u!222 &1603736046
 CanvasRenderer:
   m_ObjectHideFlags: 0

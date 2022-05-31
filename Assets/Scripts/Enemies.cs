@@ -11,9 +11,6 @@ public class Enemies : MonoBehaviour
     public Character Demon;
     public Character Wraith;
 
-    // lists how many rounds were hand made
-    static int RoundsCreated = 2;
-
     // lists what characters are on the enemy team, always has to be 7, where 0 is nobody
     static public int[,] EnemyGroups = {
         { 2, 2, 2, 2, 0, 0, 0 },
@@ -23,6 +20,48 @@ public class Enemies : MonoBehaviour
     // gets a list of characters (enemies) at a given round
     public List<Character> getEnemies(int Round)
     {
+        switch (Round){
+            case 0:
+                EnemyGround.add(BabyDragon);
+                break;
+            case 1:
+                EnemyGround.add(BabyDragon);
+                EnemyGround.add(BabyDragon);
+                break;
+            case 2:
+                EnemyGround.add(Dragon);
+                break;
+            case 3:
+                EnemyGround.add(Dragon);
+                EnemyGround.add(Dragon);
+                break;
+            case 4:
+                EnemyGroup.add(BabyDragon);
+                EnemyGroup.add(Dragon);
+                EnemyGroup.add(Demon);
+                break;
+            case 5:
+                EnemyGroup.add(Demon);
+                EnemyGroup.add(Demon);
+                EnemyGroup.add(Demon);
+                break;
+            case 6:
+                EnemyGroup.add(Wraith);
+                EnemyGroup.add(Knight);
+                EnemyGroup.add(Knight);
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case default:
+                break;
+        }
+
+
+        /*We Hardcode stuff now lol 
         // if round is higher than roundscreated just start at 0 again
         Round = Round % RoundsCreated;
         // fills a list with characters based on EnemyGroups and then returns it 
@@ -42,6 +81,7 @@ public class Enemies : MonoBehaviour
             }
             counter++;
         }
+        */
         return EnemyGroup;
     }
 

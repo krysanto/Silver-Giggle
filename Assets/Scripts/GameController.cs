@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     public int Round = 0;
     public int Gold = 0;
     public int Health = 20;
+    public int Round = 0;
 
     // adds a character to the CharacterList as long as your team isnt full
     public void AddCharacterToList(Character CharacterToAdd)

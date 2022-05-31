@@ -14,6 +14,7 @@ public class CardScript : MonoBehaviour
     // variables used for displaying character stats
     public int HP;
     public int damage;
+    public int cost;
     public Character createdCharacter;
 
     // place where the character is supposed to be created
@@ -54,20 +55,13 @@ public class CardScript : MonoBehaviour
         // create statstextbox
         HP = createdCharacter.Leben;
         damage = createdCharacter.Schaden;
+        cost = createdCharacter.Cost;
         //Statsbox.text = "";
         Statsbox.text += "HP: ";
         Statsbox.text += HP.ToString();
         Statsbox.text += "\nDamage: ";
         Statsbox.text += damage.ToString();
-        Debug.Log(Statsbox);
-        // makes the card display the cost of the character
-        Debug.Log("Cost " + myCharacter.Cost);
-            // BUG: FOR SOME REASON WILL NOT WORK
-            Textbox.text = myCharacter.Cost.ToString();
-            // USED FOR NOW TO BYPASS THE BUG 
-            myCharacterCost = 3;
-            Textbox.text = myCharacterCost.ToString();
-        Textbox.text += "\n";
+        Textbox.text = cost.ToString();
     }
 
     public void CloseShop()

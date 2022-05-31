@@ -48,9 +48,7 @@ public class Fight : MonoBehaviour
         Debug.Log("Waiting for 7 seconds");
         yield return new WaitForSeconds (7);
         Debug.Log("Finished Waiting");
-        Debug.Log("Before scenechange");
-        
-        Debug.Log("AFter scenechange");
+
         // changes Cameraview
         ToggleCamera cameraScript = changeCamera.GetComponent<ToggleCamera>();
         cameraScript.ChangeCamera();
@@ -68,6 +66,7 @@ public class Fight : MonoBehaviour
     {
         jumpedToFinish = true;
         Debug.Log("Fight is finished, changeing scene");
+        GameController.Round++;
         StartCoroutine(Waiter());
     }
 

@@ -20,10 +20,6 @@ public class GameController : MonoBehaviour
 
     // list of all enemies, if there is time link this to List of enemies and get the characters from there
     // that way if you create a new character they only have to be added there and not also here
-    public GameObject BabyDragon;
-    public GameObject Dragon;
-    public GameObject Demon;
-    public GameObject Wraith;
 
     public Enemies EnemyController;
 

@@ -27,4 +27,9 @@ public class Demon : Character
         myAnimator.Play("Demon_Idle");
         base.Finished();
     }
+
+    public override void DestroyMe()
+    {
+        base.DestroyMe();
+    }
 }

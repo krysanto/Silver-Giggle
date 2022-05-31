@@ -20,35 +20,36 @@ public class Enemies : MonoBehaviour
     // gets a list of characters (enemies) at a given round
     public List<Character> getEnemies(int Round)
     {
+        List<Character> EnemyGroup = new List<Character>();
         switch (Round){
             case 0:
-                EnemyGround.add(BabyDragon);
+                EnemyGroup.Add(BabyDragon);
                 break;
             case 1:
-                EnemyGround.add(BabyDragon);
-                EnemyGround.add(BabyDragon);
+                EnemyGroup.Add(BabyDragon);
+                EnemyGroup.Add(BabyDragon);
                 break;
             case 2:
-                EnemyGround.add(Dragon);
+                EnemyGroup.Add(Dragon);
                 break;
             case 3:
-                EnemyGround.add(Dragon);
-                EnemyGround.add(Dragon);
+                EnemyGroup.Add(Dragon);
+                EnemyGroup.Add(Dragon);
                 break;
             case 4:
-                EnemyGroup.add(BabyDragon);
-                EnemyGroup.add(Dragon);
-                EnemyGroup.add(Demon);
+                EnemyGroup.Add(BabyDragon);
+                EnemyGroup.Add(Dragon);
+                EnemyGroup.Add(Demon);
                 break;
             case 5:
-                EnemyGroup.add(Demon);
-                EnemyGroup.add(Demon);
-                EnemyGroup.add(Demon);
+                EnemyGroup.Add(Demon);
+                EnemyGroup.Add(Demon);
+                EnemyGroup.Add(Demon);
                 break;
             case 6:
-                EnemyGroup.add(Wraith);
-                EnemyGroup.add(Knight);
-                EnemyGroup.add(Knight);
+                EnemyGroup.Add(Wraith);
+                EnemyGroup.Add(Knight);
+                EnemyGroup.Add(Knight);
                 break;
             case 7:
                 break;
@@ -56,7 +57,7 @@ public class Enemies : MonoBehaviour
                 break;
             case 9:
                 break;
-            case default:
+            case '_':
                 break;
         }
 

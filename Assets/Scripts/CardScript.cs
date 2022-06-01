@@ -10,7 +10,7 @@ public class CardScript : MonoBehaviour
     
     // displays which character was picked for this card and points to the clone of the character
     public Character myCharacter;
-    public int myCharacterCost;
+
     // variables used for displaying character stats
     public int HP;
     public int damage;
@@ -81,7 +81,7 @@ public class CardScript : MonoBehaviour
         {
             active = false;
             Debug.Log("Purchasing Character");
-            GameController.Gold -= myCharacterCost;
+            GameController.Gold -= cost;
             Textbox.text = "0\n";
             // adds the character to list of allies
             GameController.AddCharacterToList(myCharacter);

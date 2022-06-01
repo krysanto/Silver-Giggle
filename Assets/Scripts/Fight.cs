@@ -67,6 +67,7 @@ public class Fight : MonoBehaviour
         jumpedToFinish = true;
         Debug.Log("Fight is finished, changeing scene");
         GameController.Round++;
+        //Enemies.Clear();
         StartCoroutine(Waiter());
     }
 

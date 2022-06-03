@@ -56,7 +56,7 @@ public class CardScript : MonoBehaviour
         HP = createdCharacter.Leben;
         damage = createdCharacter.Schaden;
         cost = createdCharacter.Cost;
-        //Statsbox.text = "";
+        Statsbox.text = "";
         Statsbox.text += "HP: ";
         Statsbox.text += HP.ToString();
         Statsbox.text += "\nDamage: ";

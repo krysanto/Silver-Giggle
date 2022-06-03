@@ -63,7 +63,6 @@ public class GameController : MonoBehaviour
     public void UpdateHP()
     {
         HP.text = Health + " HP";
-        
     }
 
     // executes the PrintCharacter function on every character in the List

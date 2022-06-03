@@ -82,7 +82,7 @@ public class CardScript : MonoBehaviour
             active = false;
             Debug.Log("Purchasing Character");
             GameController.Gold -= cost;
-            Textbox.text = "0\n";
+            Textbox.text = "0";
             // adds the character to list of allies
             GameController.AddCharacterToList(myCharacter);
             myCharacter = null;

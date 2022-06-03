@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using TMPro;
 
 // this Code handels how Fights should take place and what events should be called after and before a fight
 public class Fight : MonoBehaviour
@@ -24,8 +25,9 @@ public class Fight : MonoBehaviour
     // additional bool to not execute FinishFight() twice.
     public bool jumpedToFinish = true;
 
-    public TextMeshPro victoryText;
-    public TextMeshPro defeatText;
+    public TMP_Text victoryText;
+    public TMP_Text defeatText;
+    public TMP_Text loseText;
 
     //ChangeScene
     public SceneChanger changeScene;
@@ -52,17 +54,32 @@ public class Fight : MonoBehaviour
     private IEnumerator Waiter()
     {
         Debug.Log("Waiting for 7 seconds");
-        yield return new WaitForSeconds (7);
+        
         Debug.Log("Finished Waiting");
         if (Allies.Count.Equals(0))
         {
-            GameController.Health -= 3;
+            GameController.Health -= 20;
+            defeatText.gameObject.SetActive(true);
             if (GameController.Health <= 0)
             {
-                changeScene.ChangeScene("MainMenuScene");
+                loseText.gameObject.SetActive(true);
             }
         }
+        else
+        {
+            victoryText.gameObject.SetActive(true);
+        }
 
+
+        yield return new WaitForSeconds(7);
+        victoryText.gameObject.SetActive(false);
+        defeatText.gameObject.SetActive(false);
+
+
+        if (GameController.Health <= 0)
+        {
+            changeScene.ChangeScene("MainMenuScene");
+        }
 
         // changes Cameraview
         ToggleCamera cameraScript = changeCamera.GetComponent<ToggleCamera>();

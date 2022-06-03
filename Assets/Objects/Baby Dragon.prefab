@@ -126,6 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b41ad38916fee743bb813b57fa9e6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  array: 030000000200000001000000
+  myAnimator: {fileID: 0}
+  MaxHealth: 0
   Leben: 0
-  Position: 0
+  Schaden: 0
+  Cost: 3
+  healthbar: {fileID: 6350271337869154278, guid: c8f389416b303914ab6049ff6f8622f4, type: 3}

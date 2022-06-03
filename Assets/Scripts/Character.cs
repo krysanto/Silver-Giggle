@@ -21,7 +21,9 @@ public class Character : MonoBehaviour
         MaxHealth = Leben;
         Schaden = 25;
         Cost = 3;
+        Debug.Log("Test");
         healthbar.SetHealth(Leben, MaxHealth);
+        Debug.Log("Test1");
     }
 
     // take damage

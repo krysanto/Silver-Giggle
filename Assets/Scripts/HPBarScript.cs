@@ -7,15 +7,28 @@ public class HPBarScript : MonoBehaviour
 {
     public Slider Slider;
     public Color Low;
+    public Color Medium;
     public Color High;
     public Vector3 Offset;
 
     public void SetHealth(float health, float maxHealth)
     {
-        Slider.value = 100;
-        Slider.maxValue = 100;
+        Slider.maxValue = maxHealth;
+        Slider.value = health;
+        if (health / maxHealth > 0.5)
+        {
+            Slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(Medium, High, Slider.normalizedValue);
+        }
+        else
+        {
+            Slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(Low, Medium, Slider.normalizedValue);
+        }
+        
+    }
 
-        Slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(Low, High, Slider.normalizedValue);
+    void Start()
+    {
+        Offset.y = 1.2f;
     }
 
     // Update is called once per frame

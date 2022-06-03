@@ -58,7 +58,7 @@ public class Fight : MonoBehaviour
         Debug.Log("Finished Waiting");
         if (Allies.Count.Equals(0))
         {
-            GameController.Health -= 20;
+            GameController.Health -= 3;
             defeatText.gameObject.SetActive(true);
             if (GameController.Health <= 0)
             {

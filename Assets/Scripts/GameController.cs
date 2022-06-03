@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class GameController : MonoBehaviour
     public int Gold = 0;
     public int Health = 20;
 
+    //Get Healthtext to change HP
+    public Text HP;
+
     // adds a character to the CharacterList as long as your team isnt full
     public void AddCharacterToList(Character CharacterToAdd)
     {
@@ -49,6 +53,17 @@ public class GameController : MonoBehaviour
         {
             return null;
         }
+    }
+
+    void Start()
+    {
+        HP.text = Health + " HP";
+    }
+
+    public void UpdateHP()
+    {
+        HP.text = Health + " HP";
+        
     }
 
     // executes the PrintCharacter function on every character in the List
@@ -108,6 +123,7 @@ public class GameController : MonoBehaviour
             ClearCharacters();
             PrintCharacters();
             PrintEnemies();
+
         }
         Round++;
     }

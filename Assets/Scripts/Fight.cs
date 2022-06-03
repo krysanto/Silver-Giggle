@@ -24,6 +24,12 @@ public class Fight : MonoBehaviour
     // additional bool to not execute FinishFight() twice.
     public bool jumpedToFinish = true;
 
+    public TextMeshPro victoryText;
+    public TextMeshPro defeatText;
+
+    //ChangeScene
+    public SceneChanger changeScene;
+
     // called at the Start of Combat, Closes the shop and gets the Characters and Enemies from the GameController 
     public void StartCombat()
     {
@@ -48,16 +54,27 @@ public class Fight : MonoBehaviour
         Debug.Log("Waiting for 7 seconds");
         yield return new WaitForSeconds (7);
         Debug.Log("Finished Waiting");
+        if (Allies.Count.Equals(0))
+        {
+            GameController.Health -= 3;
+            if (GameController.Health <= 0)
+            {
+                changeScene.ChangeScene("MainMenuScene");
+            }
+        }
+
 
         // changes Cameraview
         ToggleCamera cameraScript = changeCamera.GetComponent<ToggleCamera>();
-        cameraScript.ChangeCamera();
+        
         // adds stats and opens the shop again
         GameController.ClearEnemies();
         GameController.Gold += 3;
         GameController.UpdateCharactersDisplayed();
+        GameController.UpdateHP();
+        
         Shop.OpenShop();
-
+        cameraScript.ChangeCamera();
         this.enabled = false;
     }
 
@@ -65,7 +82,7 @@ public class Fight : MonoBehaviour
     private void FinishFight()
     {
         jumpedToFinish = true;
-        Debug.Log("Fight is finished, changeing scene");
+        Debug.Log("Fight is finished");
         GameController.Round++;
         //Enemies.Clear();
         StartCoroutine(Waiter());

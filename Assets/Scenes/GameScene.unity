@@ -1109,7 +1109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   option: 0
   myCharacter: {fileID: 0}
-  myCharacterCost: 0
   HP: 0
   damage: 0
   cost: 0
@@ -1700,7 +1699,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   option: 0
   myCharacter: {fileID: 0}
-  myCharacterCost: 0
   HP: 0
   damage: 0
   cost: 0
@@ -1745,7 +1743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -11.4}
+  m_AnchoredPosition: {x: 0, y: -10.8}
   m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745287064
@@ -2321,7 +2319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -11.4}
+  m_AnchoredPosition: {x: 0, y: -10.8}
   m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1161772726
@@ -3402,7 +3400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   option: 0
   myCharacter: {fileID: 0}
-  myCharacterCost: 0
   HP: 0
   damage: 0
   cost: 0
@@ -3670,7 +3667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -11.4}
+  m_AnchoredPosition: {x: 0, y: -10.8}
   m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1603736045

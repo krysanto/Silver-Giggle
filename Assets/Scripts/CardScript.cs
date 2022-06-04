@@ -29,7 +29,6 @@ public class CardScript : MonoBehaviour
 
     // all textboxes where the text will be changed
     public Text Textbox;
-    public Text Goldbox;
     public Text Statsbox;
 
     // at the start of the program generates the first shop
@@ -45,7 +44,7 @@ public class CardScript : MonoBehaviour
         myCharacter = null;
         while (myCharacter == null)
         {
-            option = Random.Range(1, 6);
+            option = Random.Range(1, 10);
             myCharacter = ListOfCharacters.GetCharacter(option);
         }
         // instantiate creates a copy of Character, - Instantiate(Object to Instantiate, Coordinates, Rotation, ordner where it should be moved) 
@@ -88,14 +87,8 @@ public class CardScript : MonoBehaviour
             myCharacter = null;
             // destroys the clone that is still inside the card
             Destroy(createdCharacter.gameObject);
+            GameController.UpdateHPandGold();
         }
-    }
-
-    // every frame updates how much gold you have 
-    // could be moved to whenever a function changes the gold total
-    public void Update()
-    {
-        Goldbox.text = GameController.Gold.ToString() + " Gold";
     }
 }
 

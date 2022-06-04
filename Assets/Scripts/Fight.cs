@@ -88,7 +88,7 @@ public class Fight : MonoBehaviour
         GameController.ClearEnemies();
         GameController.Gold += 3;
         GameController.UpdateCharactersDisplayed();
-        GameController.UpdateHP();
+        GameController.UpdateHPandGold();
         
         Shop.OpenShop();
         cameraScript.ChangeCamera();

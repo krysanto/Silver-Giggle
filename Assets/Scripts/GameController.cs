@@ -25,12 +25,19 @@ public class GameController : MonoBehaviour
     public Enemies EnemyController;
 
     // shows the current Stats of the player
-    public int Round = 0;
+    public int Round = 1;
     public int Gold = 0;
     public int Health = 20;
 
-    //Get Healthtext to change HP
-    public Text HP;
+    // get text to change HP and Gold
+    public Text Healthshop;
+    public Text Healthfight;
+
+    public Text Goldshop;
+    public Text Goldfight;
+
+    public Text Roundshop;
+    public Text Roundfight;
 
     // adds a character to the CharacterList as long as your team isnt full
     public void AddCharacterToList(Character CharacterToAdd)
@@ -55,14 +62,20 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void Start()
+    public void Start()
     {
-        HP.text = Health + " HP";
+        Healthshop.text = Health + " Health";
+        Healthfight.text = Health + " Health";
+        Goldshop.text = Gold + " Gold";
+        Goldfight.text = Gold + " Gold";
     }
 
-    public void UpdateHP()
+    public void UpdateHPandGold()
     {
-        HP.text = Health + " HP";
+        Healthshop.text = Health + " Health";
+        Healthfight.text = Health + " Health";
+        Goldshop.text = Gold + " Gold";
+        Goldfight.text = Gold + " Gold";
     }
 
     // executes the PrintCharacter function on every character in the List
@@ -116,13 +129,14 @@ public class GameController : MonoBehaviour
     // gets a new EnemyList from the EnemyController with the current Round and prints it, if it isnt null
     public void NextRound()
     {
+        Roundfight.text = "Round: " + Round.ToString();
+        Roundshop.text = "Round: " + Round.ToString();
         Debug.Log("Next Round");
         if ((EnemyList = EnemyController.getEnemies(Round)) != null)
         {
             ClearCharacters();
             PrintCharacters();
             PrintEnemies();
-
         }
         Round++;
     }

@@ -28,6 +28,8 @@ public class Fight : MonoBehaviour
     public TMP_Text victoryText;
     public TMP_Text defeatText;
     public TMP_Text loseText;
+    public TMP_Text goldText;
+    public TMP_Text healthText;
 
     //ChangeScene
     public SceneChanger changeScene;
@@ -64,16 +66,24 @@ public class Fight : MonoBehaviour
             {
                 loseText.gameObject.SetActive(true);
             }
+            else
+            {
+                healthText.gameObject.SetActive(true);
+            }
         }
         else
         {
             victoryText.gameObject.SetActive(true);
+            goldText.gameObject.SetActive(true);
         }
 
 
         yield return new WaitForSeconds(7);
         victoryText.gameObject.SetActive(false);
         defeatText.gameObject.SetActive(false);
+        loseText.gameObject.SetActive(false);
+        healthText.gameObject.SetActive(false);
+        goldText.gameObject.SetActive(false);
 
 
         if (GameController.Health <= 0)

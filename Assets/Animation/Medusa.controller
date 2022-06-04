@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Hurt
+    m_ConditionEvent: false
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6470974592600133522}
@@ -64,7 +64,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack2
+    m_ConditionEvent: false
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -639719705550688828}
@@ -88,8 +88,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: Attack2
+  - m_ConditionMode: 1
+    m_ConditionEvent: false
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7731942461341594637}
@@ -113,8 +113,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: Hurt
+  - m_ConditionMode: 1
+    m_ConditionEvent: false
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7731942461341594637}
@@ -166,7 +166,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack
+    m_ConditionEvent: false
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3896240635484791931}
@@ -196,16 +196,16 @@ AnimatorStateMachine:
     m_Position: {x: 260, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -639719705550688828}
-    m_Position: {x: 460, y: -120, z: 0}
+    m_Position: {x: 400, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2181432229078831046}
-    m_Position: {x: 440, y: 130, z: 0}
+    m_Position: {x: 400, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6470974592600133522}
-    m_Position: {x: 30, y: 130, z: 0}
+    m_Position: {x: 100, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3896240635484791931}
-    m_Position: {x: 150, y: -110, z: 0}
+    m_Position: {x: 100, y: -100, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -277,7 +277,13 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Medusa
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: false
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -299,8 +305,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: Attack
+  - m_ConditionMode: 1
+    m_ConditionEvent: false
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7731942461341594637}
@@ -352,7 +358,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Death
+    m_ConditionEvent: false
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2181432229078831046}

@@ -60,7 +60,9 @@ public class Fight : MonoBehaviour
         Debug.Log("Finished Waiting");
         if (Allies.Count.Equals(0))
         {
-            GameController.Health -= 3;
+            //Get Remaining number of Enemies and lose HP based on that number
+            int aliveEnemies = Enemies.Count;
+            GameController.Health -= aliveEnemies;
             defeatText.gameObject.SetActive(true);
             if (GameController.Health <= 0)
             {
@@ -68,6 +70,10 @@ public class Fight : MonoBehaviour
             }
             else
             {
+                healthText.text = "";
+                healthText.text += "You have Lost ";
+                healthText.text += aliveEnemies;
+                healthText.text += " Healthpoints !";
                 healthText.gameObject.SetActive(true);
             }
         }

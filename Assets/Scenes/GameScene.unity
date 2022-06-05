@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Knight: {fileID: 9012053956032820953, guid: 8df1bf3276b066b42980a4cab2791e3e, type: 3}
-  BabyDragon: {fileID: 4308223738666852089, guid: fae8d49c9c41af64db7d4ccbc7856cae, type: 3}
+  BabyDragon: {fileID: 1130766914564775992, guid: fae8d49c9c41af64db7d4ccbc7856cae, type: 3}
   Dragon: {fileID: 3712613831668036403, guid: 61c55a6a730229c49bf0941204b27f97, type: 3}
   Demon: {fileID: -6143067569426120459, guid: e8afd3acb8cdcfd43a529d25903525f3, type: 3}
   Wraith: {fileID: 6661203227409534087, guid: 924d1ec633a984d46ab4c92e939e352b, type: 3}

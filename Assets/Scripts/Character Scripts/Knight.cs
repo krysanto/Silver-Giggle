@@ -16,6 +16,12 @@ public class Knight : Character
         return base.Attack(Gegner);
     }
 
+    public override bool Attack2(Character Gegner)
+    {
+        myAnimator.Play("Knight_Attack2");
+        return base.Attack2(Gegner);
+    }
+
     public override void Die()
     {
         myAnimator.Play("Knight_Death");

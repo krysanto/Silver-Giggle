@@ -16,6 +16,12 @@ public class WraithBlue : Character
         return base.Attack(Gegner);
     }
 
+    public override bool Attack2(Character Gegner)
+    {
+        myAnimator.Play("WraithBlue_Attack2");
+        return base.Attack2(Gegner);
+    }
+
     public override void Die()
     {
         myAnimator.Play("WraithBlue_Death");

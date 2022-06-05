@@ -20,6 +20,13 @@ public class Dragon : Character
         return base.Attack(Gegner);
     }
 
+    //SpecialAttack
+    public override bool Attack2(Character Gegner)
+    {
+        myAnimator.Play("Dragon_Attack2");
+        return base.Attack2(Gegner);
+    }
+
     // add a "DestroyMe()" Event at the end of this animation so the character gets removed from the scene 
     public override void Die()
     {

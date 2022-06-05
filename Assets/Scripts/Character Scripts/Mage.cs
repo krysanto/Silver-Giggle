@@ -16,6 +16,12 @@ public class Mage : Character
         return base.Attack(Gegner);
     }
 
+    public override bool Attack2(Character Gegner)
+    {
+        myAnimator.Play("Mage_Attack2");
+        return base.Attack2(Gegner);
+    }
+
     public override void Die()
     {
         myAnimator.Play("Mage_Death");

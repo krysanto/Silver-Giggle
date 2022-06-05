@@ -16,6 +16,12 @@ public class Rogue : Character
         return base.Attack(Gegner);
     }
 
+    public override bool Attack2(Character Gegner)
+    {
+        myAnimator.Play("Rogue_Attack2");
+        return base.Attack2(Gegner);
+    }
+
     public override void Die()
     {
         myAnimator.Play("Rogue_Death");

@@ -45,11 +45,12 @@ public class Character : MonoBehaviour
 
     //special attack
     public virtual bool Attack2(Character Gegner)
-    { 
+    {
         Gegner.ReduceHealth(Schaden);
         if (Gegner.Leben <= 0) return true;
         return false;
     }
+
 
     // die (every child inserts its die animation here)
     public virtual void Die()

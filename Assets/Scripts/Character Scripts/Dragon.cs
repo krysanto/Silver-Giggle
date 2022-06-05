@@ -16,16 +16,19 @@ public class Dragon : Character
     // Plays its own attack and makes the enemy play the Hurt animation
     public override bool Attack(Character Gegner)
     {
-        myAnimator.Play("Dragon_Attack");
-        return base.Attack(Gegner);
+        int rand = Random.Range(1, 6);
+        if (rand == 6)
+        {
+            myAnimator.Play("Dragon_Attack2");
+            return base.Attack2(Gegner);
+        }
+        else
+        {
+            myAnimator.Play("Dragon_Attack");
+            return base.Attack(Gegner);
+        }
     }
 
-    //SpecialAttack
-    public override bool Attack2(Character Gegner)
-    {
-        myAnimator.Play("Dragon_Attack2");
-        return base.Attack2(Gegner);
-    }
 
     // add a "DestroyMe()" Event at the end of this animation so the character gets removed from the scene 
     public override void Die()

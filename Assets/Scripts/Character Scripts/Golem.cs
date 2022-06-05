@@ -12,14 +12,17 @@ public class Golem: Character
 
     public override bool Attack(Character Gegner)
     {
-        myAnimator.Play("Golem_Attack");
-        return base.Attack(Gegner);
-    }
-
-    public override bool Attack2(Character Gegner)
-    {
-        myAnimator.Play("Golem_Attack2");
-        return base.Attack2(Gegner);
+        int rand = Random.Range(1, 6);
+        if (rand == 6)
+        {
+            myAnimator.Play("Golem_Attack2");
+            return base.Attack2(Gegner);
+        }
+        else
+        {
+            myAnimator.Play("Golem_Attack");
+            return base.Attack(Gegner);
+        }
     }
 
     public override void Die()

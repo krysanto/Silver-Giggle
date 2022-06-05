@@ -9,8 +9,14 @@ public class Enemies : MonoBehaviour
     public Character BabyDragon; 
     public Character Dragon;
     public Character Demon;
-    public Character Wraith;
+    public Character WraithBlue;
     public Character Mage;
+    public Character Medusa;
+    public Character Jinn;
+    public Character Rogue;
+    public Character Golem;
+    public Character GolemGreen;
+    public Character Wraith;
 
     // gets a list of characters (enemies) at a given round
     public List<Character> getEnemies(int Round)
@@ -56,16 +62,22 @@ public class Enemies : MonoBehaviour
         int AmountOfEnemies = Random.Range(3, 7);
         for (int iter = 0; iter < AmountOfEnemies; ++iter)
         {
-            int RandomInt = Random.Range(1, 5);
+            int RandomInt = Random.Range(1, 12);
             switch (RandomInt)
             {
                 case 0: EnemyGroup.Add(null); break;
                 case 1: EnemyGroup.Add(BabyDragon); break;
                 case 2: EnemyGroup.Add(Dragon); break;
                 case 3: EnemyGroup.Add(Demon); break;
-                case 4: EnemyGroup.Add(Wraith); break;
+                case 4: EnemyGroup.Add(WraithBlue); break;
                 case 5: EnemyGroup.Add(Knight); break;
                 case 6: EnemyGroup.Add(Mage); break;
+                case 7: EnemyGroup.Add(Medusa); break;
+                case 8: EnemyGroup.Add(Jinn); break;
+                case 9: EnemyGroup.Add(Rogue); break;
+                case 10: EnemyGroup.Add(Golem); break;
+                case 11: EnemyGroup.Add(GolemGreen); break;
+                case 12: EnemyGroup.Add(Wraith); break;
                 default: Debug.Log("Error, Enemy in Enemy Round cant be generated"); break;
             }
             counter++;
@@ -82,9 +94,15 @@ public class Enemies : MonoBehaviour
             case 1: return BabyDragon;
             case 2: return Dragon;
             case 3: return Demon;
-            case 4: return Wraith;
+            case 4: return WraithBlue;
             case 5: return Knight;
             case 6: return Mage;
+            case 7: return Medusa;
+            case 8: return Jinn;
+            case 9: return Rogue;
+            case 10: return Golem;
+            case 11: return GolemGreen;
+            case 12: return Wraith;
             default: return null;
         }
     }

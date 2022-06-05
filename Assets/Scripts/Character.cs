@@ -43,8 +43,9 @@ public class Character : MonoBehaviour
         return false;
     }
 
+    //special attack
     public virtual bool Attack2(Character Gegner)
-    {
+    { 
         Gegner.ReduceHealth(Schaden);
         if (Gegner.Leben <= 0) return true;
         return false;

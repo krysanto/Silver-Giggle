@@ -1869,8 +1869,14 @@ MonoBehaviour:
   BabyDragon: {fileID: 1130766914564775992, guid: fae8d49c9c41af64db7d4ccbc7856cae, type: 3}
   Dragon: {fileID: 3712613831668036403, guid: 61c55a6a730229c49bf0941204b27f97, type: 3}
   Demon: {fileID: -6143067569426120459, guid: e8afd3acb8cdcfd43a529d25903525f3, type: 3}
-  Wraith: {fileID: 6661203227409534087, guid: 924d1ec633a984d46ab4c92e939e352b, type: 3}
+  WraithBlue: {fileID: -1563109327501274723, guid: 924d1ec633a984d46ab4c92e939e352b, type: 3}
   Mage: {fileID: 5263494055313150668, guid: b55eb90fbb892394baf85b56f243f7a1, type: 3}
+  Medusa: {fileID: 5561642123921189084, guid: 6f9e5927c9ed7aa48b0c4d20a3a5efa7, type: 3}
+  Jinn: {fileID: 2309784895405565026, guid: 3ab38cce61473a2428be146ec08c6e0f, type: 3}
+  Rogue: {fileID: 7745728657685027407, guid: 467f176087b1bfd4aae155995c0cc127, type: 3}
+  Golem: {fileID: -2803225900334355711, guid: 3c01688010bcf834c847df20d7510413, type: 3}
+  GolemGreen: {fileID: -748166452650874082, guid: f6f2c4b9200a3084dbbb1b6eecdd8be0, type: 3}
+  Wraith: {fileID: -4191658547076753814, guid: bbeea92f0e48d914f80662abd76030f0, type: 3}
 --- !u!4 &614524513
 Transform:
   m_ObjectHideFlags: 0

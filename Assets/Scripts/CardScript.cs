@@ -44,7 +44,7 @@ public class CardScript : MonoBehaviour
         myCharacter = null;
         while (myCharacter == null)
         {
-            option = Random.Range(1, 10);
+            option = Random.Range(1, 14);
             myCharacter = ListOfCharacters.GetCharacter(option);
         }
         // instantiate creates a copy of Character, - Instantiate(Object to Instantiate, Coordinates, Rotation, ordner where it should be moved) 

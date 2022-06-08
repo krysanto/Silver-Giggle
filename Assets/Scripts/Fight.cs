@@ -55,7 +55,7 @@ public class Fight : MonoBehaviour
     // used to wait 7 Seconds before after every fight, then Stats of the Character (in GameController) get changed 
     private IEnumerator Waiter()
     {
-        Debug.Log("Waiting for 7 seconds");
+        Debug.Log("Waiting for 5 seconds");
         
         Debug.Log("Finished Waiting");
         if (Allies.Count.Equals(0))
@@ -84,7 +84,7 @@ public class Fight : MonoBehaviour
         }
 
 
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
         victoryText.gameObject.SetActive(false);
         defeatText.gameObject.SetActive(false);
         loseText.gameObject.SetActive(false);

@@ -76,6 +76,8 @@ public class GameController : MonoBehaviour
         Healthfight.text = Health + " Health";
         Goldshop.text = Gold + " Gold";
         Goldfight.text = Gold + " Gold";
+        Roundfight.text = "Round: " + Round.ToString();
+        Roundshop.text = "Round: " + Round.ToString();
     }
 
     // executes the PrintCharacter function on every character in the List
@@ -129,8 +131,6 @@ public class GameController : MonoBehaviour
     // gets a new EnemyList from the EnemyController with the current Round and prints it, if it isnt null
     public void NextRound()
     {
-        Roundfight.text = "Round: " + Round.ToString();
-        Roundshop.text = "Round: " + Round.ToString();
         Debug.Log("Next Round");
         if ((EnemyList = EnemyController.getEnemies(Round)) != null)
         {
@@ -138,7 +138,6 @@ public class GameController : MonoBehaviour
             PrintCharacters();
             PrintEnemies();
         }
-        Round++;
     }
 
     // clears all characters

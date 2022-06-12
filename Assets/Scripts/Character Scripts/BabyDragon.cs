@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class BabyDragon : Character
 {
+    public override void Awake()
+    {
+        Leben = 100;
+        MaxHealth = Leben;
+        Schaden = 25;
+        Dodge = 20;
+        Cost = 2;
+        healthbar.SetHealth(Leben, MaxHealth);
+    }
+
     public override void ReduceHealth(int damage)
     {
-        myAnimator.Play("BabyDragon_Hurt");
-        base.ReduceHealth(damage);
+        if (Random.Range(1, 100) > Dodge)
+        {
+            myAnimator.Play("BabyDragon_Hurt");
+            base.ReduceHealth(damage);
+        }
     }
 
     public override bool Attack(Character Gegner)

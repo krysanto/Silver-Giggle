@@ -4,17 +4,33 @@ using UnityEngine;
 
 public class Wraith : Character
 {
+    public override void Awake()
+    {
+        Leben = 100;
+        MaxHealth = Leben;
+        Schaden = 20;
+        Dodge = 25;
+        Cost = 2;
+        SpecialDamage = Schaden;
+        healthbar.SetHealth(Leben, MaxHealth);
+    }
+
     public override void ReduceHealth(int damage)
     {
-        myAnimator.Play("Wraith_Hurt");
-        base.ReduceHealth(damage);
+        if (Random.Range(1, 100) > Dodge)
+        {
+            myAnimator.Play("Wraith_Hurt");
+            base.ReduceHealth(damage);
+        }
     }
 
     public override bool Attack(Character Gegner)
     {
-        int rand = Random.Range(1, 6);
+        int rand = Random.Range(1, 7);
         if (rand == 6)
         {
+            Leben += 5;
+            if (Leben >= MaxHealth) Leben = MaxHealth;
             myAnimator.Play("Wraith_Attack2");
             return base.Attack2(Gegner);
         }

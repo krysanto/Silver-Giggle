@@ -73,7 +73,14 @@ public class Fight : MonoBehaviour
                 healthText.text = "";
                 healthText.text += "You have Lost ";
                 healthText.text += aliveEnemies;
-                healthText.text += " Healthpoints !";
+                if(aliveEnemies > 1)
+                {
+                    healthText.text += " Healthpoints !";
+                } else
+                {
+                    healthText.text += " Healthpoint !";
+                }
+                
                 healthText.gameObject.SetActive(true);
             }
         }
@@ -102,7 +109,7 @@ public class Fight : MonoBehaviour
         
         // adds stats and opens the shop again
         GameController.ClearEnemies();
-        GameController.Gold += 3;
+        GameController.Gold += 2;
         GameController.UpdateCharactersDisplayed();
         GameController.UpdateHPandGold();
         
@@ -174,6 +181,7 @@ public class Fight : MonoBehaviour
                 // if this kills the enemy remove it from the list of enemies and let it Die (this also removes the character from the scene)
                 if (enemydead)
                 {
+                    GameController.Gold += 1;
                     Enemies.Remove(Enemy);
                     Enemy.Die();
                 }
@@ -185,6 +193,7 @@ public class Fight : MonoBehaviour
                 // if this kills the ally remove it from the list of characters and let it Die (this also removes the character from the scene)
                 if (allydead)
                 {
+                    GameController.RemoveFirst();
                     Allies.Remove(Ally);
                     Ally.Die();
                 }

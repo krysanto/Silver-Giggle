@@ -4,23 +4,39 @@ using UnityEngine;
 
 public class Jinn : Character
 {
+    public override void Awake()
+    {
+        Leben = 150;
+        MaxHealth = Leben;
+        Schaden = 35;
+        Dodge = 25;
+        Cost = 5;
+        SpecialDamage = Schaden;
+        healthbar.SetHealth(Leben, MaxHealth);
+    }
+
     public override void ReduceHealth(int damage)
     {
-        myAnimator.Play("Jinn_Hurt");
-        base.ReduceHealth(damage);
+        if(Random.Range(1, 100) > Dodge)
+        {
+            myAnimator.Play("Jinn_Hurt");
+            base.ReduceHealth(damage);
+        }
     }
 
     public override bool Attack(Character Gegner)
     {
-        int rand = Random.Range(1, 6);
+        int rand = Random.Range(1, 7);
         if (rand == 6)
         {
-            myAnimator.Play("Jinn_Attack2");
+            myAnimator.Play("Jinn_Attack");
+            Dodge = 100;
             return base.Attack2(Gegner);
         }
         else
         {
-            myAnimator.Play("Jinn_Attack");
+            myAnimator.Play("Jinn_Attack2");
+            Dodge = 25;
             return base.Attack(Gegner);
         }
     }

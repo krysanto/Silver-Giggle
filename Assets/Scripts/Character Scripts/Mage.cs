@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class Mage : Character
 {
+    public override void Awake()
+    {
+        Leben = 90;
+        MaxHealth = Leben;
+        Schaden = 50;
+        Dodge = 10;
+        Cost = 3;
+        SpecialDamage = (int)(Schaden * 1.5f);
+        healthbar.SetHealth(Leben, MaxHealth);
+    }
+
     public override void ReduceHealth(int damage)
     {
-        myAnimator.Play("Mage_Hurt");
-        base.ReduceHealth(damage);
+        if (Random.Range(1, 100) > Dodge)
+        {
+            myAnimator.Play("Mage_Hurt");
+            base.ReduceHealth(damage);
+        }
     }
 
     public override bool Attack(Character Gegner)
     {
-        int rand = Random.Range(1, 6);
+        int rand = Random.Range(1, 7);
         if (rand == 6)
         {
             myAnimator.Play("Mage_Attack2");

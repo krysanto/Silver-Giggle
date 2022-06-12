@@ -8,28 +8,31 @@ public class Character : MonoBehaviour
     public Animator myAnimator;
 
     // each character has a these values
+    public int SpecialDamage;
     public int MaxHealth;
     public int Leben;
     public int Schaden;
-    public int Cost = 3;
+    public int Dodge;
+    public int Cost;
     public HPBarScript healthbar;
 
     // Start is called when a the Game Starts, if you want the Stats to be different per Character you can make an onverride function in each child and change the stats
     public virtual void Awake()
     {
+        SpecialDamage = 0;
         Leben = 100;
         MaxHealth = Leben;
         Schaden = 25;
         Cost = 3;
+        Dodge = 0;
         healthbar.SetHealth(Leben, MaxHealth);
     }
 
     // take damage
    public virtual void ReduceHealth(int damage)
     {
-        Debug.Log("Schaden -" + Leben);
         Leben -= damage;
-        Debug.Log(Leben);
+        // Debug.Log(Leben);
         healthbar.SetHealth(Leben, MaxHealth);
     }
 
@@ -44,7 +47,8 @@ public class Character : MonoBehaviour
     //special attack
     public virtual bool Attack2(Character Gegner)
     {
-        Gegner.ReduceHealth(Schaden);
+        Debug.Log("Using Special Attack");
+        Gegner.ReduceHealth(SpecialDamage);
         if (Gegner.Leben <= 0) return true;
         return false;
     }

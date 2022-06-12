@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8038947557498572044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1352495059430068186}
   m_Father: {fileID: 0}
@@ -74,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0c6d637b909c12c4bb34c7225423827e, type: 3}
+  m_Sprite: {fileID: 4502662577969506501, guid: 0c6d637b909c12c4bb34c7225423827e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.2, y: 3.2}
+  m_Size: {x: 1.1125, y: 1.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -117,10 +117,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAnimator: {fileID: 6993946683364173177}
+  SpecialDamage: 0
   MaxHealth: 0
   Leben: 0
   Schaden: 0
-  Cost: 3
+  Dodge: 0
+  Cost: 4
   healthbar: {fileID: 1352495059430068187}
 --- !u!1001 &5396918970945493053
 PrefabInstance:

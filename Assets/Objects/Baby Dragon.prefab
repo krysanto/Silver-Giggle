@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8323684251214702841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4831832995442150016}
   m_Father: {fileID: 0}
@@ -66,10 +66,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAnimator: {fileID: 4612898211774348770}
+  SpecialDamage: 0
   MaxHealth: 0
   Leben: 0
   Schaden: 0
-  Cost: 3
+  Dodge: 0
+  Cost: 2
   healthbar: {fileID: 4831832995442150017}
 --- !u!212 &9196990269119553587
 SpriteRenderer:

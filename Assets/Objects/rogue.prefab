@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -4553233100324306887}
   - component: {fileID: 7745728657685027407}
   m_Layer: 0
-  m_Name: Rogue
+  m_Name: rogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 129814201351766700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4378187548233662454}
   m_Father: {fileID: 0}

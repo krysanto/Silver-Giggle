@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     // shows the current Stats of the player
     public int Round = 1;
     public int Gold = 0;
-    public int Health = 20;
+    public int Health = 10;
 
     // get text to change HP and Gold
     public Text Healthshop;
@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
     public void AddCharacterToList(Character CharacterToAdd)
     {
         Debug.Log("Adding Character");
-        if(CharactersOwned+1 > 7) return;
+        if(CharactersOwned+1 > 5) return;
         CharacterList.Add(CharacterToAdd);
         CharactersOwned++;
         UpdateCharactersDisplayed();
@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
     {
         if (CharacterToPrint != null)
         {
-            return Instantiate(CharacterToPrint, new Vector3(CharacterFolder.position.x + -3 - x, (x % 3) * 3 - 3.5f, CharacterFolder.position.z), Quaternion.identity, CharacterFolder);
+            return Instantiate(CharacterToPrint, new Vector3(CharacterFolder.position.x + -3 - x * 1.5f, (x % 2) * 3 - 3.5f, CharacterFolder.position.z), Quaternion.identity, CharacterFolder);
         }
         else
         {
@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
     {
         if (EnemyToPrint != null)
         {
-            return Instantiate(EnemyToPrint, new Vector3(CharacterFolder.position.x + 3 + x, (x % 3) * 3 - 3.5f, CharacterFolder.position.z), Quaternion.Euler(new Vector3(0, 180, 0)), CharacterFolder);
+            return Instantiate(EnemyToPrint, new Vector3(CharacterFolder.position.x + 3 + x * 1.5f, (x % 3) * 2 - 3.5f, CharacterFolder.position.z), Quaternion.Euler(new Vector3(0, 180, 0)), CharacterFolder);
         } else
         {
             return null;
@@ -169,5 +169,13 @@ public class GameController : MonoBehaviour
     public List<Character> GetEnemies()
     {
         return EnemiesDisplayed;
+    }
+
+    public void RemoveFirst()
+    {
+        if(CharactersOwned > 0) { 
+            CharacterList.RemoveAt(0);
+            CharactersOwned--;
+        }
     }
 }

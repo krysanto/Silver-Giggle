@@ -23,26 +23,29 @@ public class Enemies : MonoBehaviour
     {
         List<Character> EnemyGroup = new List<Character>();
         switch (Round){
-            case 1:
+            case 1: // 2
                 EnemyGroup.Add(BabyDragon);
                 break;
-            case 2:
+            case 2: // 4
+                EnemyGroup.Add(Wraith);
+                EnemyGroup.Add(Wraith);
+                break;
+            case 3: // 5
+                EnemyGroup.Add(Golem);
+                EnemyGroup.Add(Golem);
+                EnemyGroup.Add(GolemGreen);
+                break;
+            case 4: // 9
+                EnemyGroup.Add(Knight);
+                EnemyGroup.Add(Mage);
+                EnemyGroup.Add(Rogue);
+                break;
+            case 5: // 10
+                EnemyGroup.Add(Dragon);
                 EnemyGroup.Add(BabyDragon);
                 EnemyGroup.Add(BabyDragon);
                 break;
-            case 3:
-                EnemyGroup.Add(Dragon);
-                break;
-            case 4:
-                EnemyGroup.Add(Dragon);
-                EnemyGroup.Add(Dragon);
-                break;
-            case 5:
-                EnemyGroup.Add(BabyDragon);
-                EnemyGroup.Add(Dragon);
-                EnemyGroup.Add(Demon);
-                break;
-            case 6:
+            case 6: // 12
                 EnemyGroup.Add(Demon);
                 EnemyGroup.Add(Demon);
                 EnemyGroup.Add(Demon);
@@ -59,10 +62,10 @@ public class Enemies : MonoBehaviour
         List<Character> EnemyGroup = new List<Character>();
         int counter = 0;
 
-        int AmountOfEnemies = Random.Range(3, 7);
+        int AmountOfEnemies = Random.Range(3, 6);
         for (int iter = 0; iter < AmountOfEnemies; ++iter)
         {
-            int RandomInt = Random.Range(1, 12);
+            int RandomInt = Random.Range(1, 13);
             switch (RandomInt)
             {
                 case 0: EnemyGroup.Add(null); break;

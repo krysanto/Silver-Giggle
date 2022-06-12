@@ -4,17 +4,36 @@ using UnityEngine;
 
 public class Medusa : Character
 {
+    public int Armor = 0;
+
+    public override void Awake()
+    {
+        Leben = 125;
+        MaxHealth = Leben;
+        Schaden = 40;
+        Dodge = 30;
+        Cost = 4;
+        SpecialDamage = Schaden;
+        healthbar.SetHealth(Leben, MaxHealth);
+    }
+
     public override void ReduceHealth(int damage)
     {
-        myAnimator.Play("Medusa_Hurt");
-        base.ReduceHealth(damage);
+        if (Random.Range(1, 100) > Dodge)
+        {
+            damage -= Armor;
+            if (damage < 0) damage = 0;
+            myAnimator.Play("Medusa_Hurt");
+            base.ReduceHealth(damage);
+        }
     }
 
     public override bool Attack(Character Gegner)
     {
-        int rand = Random.Range(1, 6);
+        int rand = Random.Range(1, 7);
         if (rand == 6)
         {
+            Armor += 5;
             myAnimator.Play("Medusa_Attack2");
             return base.Attack2(Gegner);
         }

@@ -46,11 +46,22 @@ public class CardScript : MonoBehaviour
         {
             option = Random.Range(1, 14);
             myCharacter = ListOfCharacters.GetCharacter(option);
+            if(myCharacter != null && myCharacter.Cost > GameController.Gold)
+            {
+                myCharacter = null;
+            }
+        }
+        Vector3 myVector;
+        // changed the position of the character to fit the card
+        switch (option)
+        {
+            case 1: myVector = new Vector3(thisCard.position.x - 0.24f, -0.75f, thisCard.position.z - 1); break;
+            default: myVector = new Vector3(thisCard.position.x, thisCard.position.y, thisCard.position.z - 1); break;
         }
         // instantiate creates a copy of Character, - Instantiate(Object to Instantiate, Coordinates, Rotation, ordner where it should be moved) 
-        createdCharacter = Instantiate(myCharacter, new Vector3(thisCard.position.x, thisCard.position.y, thisCard.position.z - 1), Quaternion.Euler(new Vector3(0, 180, 0)), thisCard);
-        // changed the size of the character to fit the card
-        createdCharacter.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+        createdCharacter = Instantiate(myCharacter, myVector, Quaternion.Euler(new Vector3(0, 180, 0)), thisCard);
+       
+        //createdCharacter.transform.localScale += new Vector3(1f, 1f, 1);
         // create statstextbox
         HP = createdCharacter.Leben;
         damage = createdCharacter.Schaden;
@@ -76,7 +87,7 @@ public class CardScript : MonoBehaviour
     public void PurchaseCharacter()
     {
         // if the card is still active and i have enough Gold to purchase the character
-        if (active == true && GameController.Gold - myCharacter.Cost >= 0)
+        if (active == true && GameController.Gold - cost >= 0)
         {
             active = false;
             Debug.Log("Purchasing Character");

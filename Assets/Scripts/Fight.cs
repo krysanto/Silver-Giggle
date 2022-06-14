@@ -34,6 +34,13 @@ public class Fight : MonoBehaviour
     //ChangeScene
     public SceneChanger changeScene;
 
+    //Add Shop Buttons to disable/enable them.
+    public GameObject ToggleShopButton;
+    public GameObject FirstCardButton;
+    public GameObject SecondCardButton;
+    public GameObject ThirdCardButton;
+
+
     // called at the Start of Combat, Closes the shop and gets the Characters and Enemies from the GameController 
     public void StartCombat()
     {
@@ -42,6 +49,12 @@ public class Fight : MonoBehaviour
 
         Allies = GameController.GetCharacters();
         Enemies = GameController.GetEnemies();
+
+        Debug.Log("Locking Shop, Player cant buy!");
+        ToggleShopButton.SetActive(false);
+        FirstCardButton.SetActive(false);
+        SecondCardButton.SetActive(false);
+        ThirdCardButton.SetActive(false);
 
         Debug.Log("Fetched Characters and Enemies:");
         Debug.Log(Allies);
@@ -103,6 +116,13 @@ public class Fight : MonoBehaviour
         {
             changeScene.ChangeScene("MainMenuScene");
         }
+
+        //Reenable Buttons
+        Debug.Log("Player can buy again!");
+        ToggleShopButton.SetActive(true);
+        FirstCardButton.SetActive(true);
+        SecondCardButton.SetActive(true);
+        ThirdCardButton.SetActive(true);
 
         // changes Cameraview
         ToggleCamera cameraScript = changeCamera.GetComponent<ToggleCamera>();

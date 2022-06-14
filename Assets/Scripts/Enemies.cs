@@ -56,13 +56,13 @@ public class Enemies : MonoBehaviour
         return EnemyGroup;
     }
 
-    // generates a random array of up to 7 characters
+    // generates a random array of up to 6 characters
     private List<Character> GenerateRandomRound()
     {
         List<Character> EnemyGroup = new List<Character>();
         int counter = 0;
 
-        int AmountOfEnemies = Random.Range(3, 6);
+        int AmountOfEnemies = Random.Range(3, 7);
         for (int iter = 0; iter < AmountOfEnemies; ++iter)
         {
             int RandomInt = Random.Range(1, 13);

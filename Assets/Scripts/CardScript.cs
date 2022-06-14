@@ -87,7 +87,7 @@ public class CardScript : MonoBehaviour
     public void PurchaseCharacter()
     {
         // if the card is still active and i have enough Gold to purchase the character
-        if (active == true && GameController.Gold - cost >= 0)
+        if (active == true && GameController.Gold - cost >= 0 && GameController.CharactersOwned < 7)
         {
             active = false;
             Debug.Log("Purchasing Character");

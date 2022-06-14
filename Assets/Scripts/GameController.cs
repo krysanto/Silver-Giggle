@@ -25,9 +25,9 @@ public class GameController : MonoBehaviour
     public Enemies EnemyController;
 
     // shows the current Stats of the player
-    public int Round = 1;
-    public int Gold = 0;
-    public int Health = 10;
+    public int Round;
+    public int Gold;
+    public int Health;
 
     // get text to change HP and Gold
     public Text Healthshop;
@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
     public void AddCharacterToList(Character CharacterToAdd)
     {
         Debug.Log("Adding Character");
-        if(CharactersOwned+1 > 5) return;
+        if(CharactersOwned+1 > 7) return;
         CharacterList.Add(CharacterToAdd);
         CharactersOwned++;
         UpdateCharactersDisplayed();
@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
     {
         if (CharacterToPrint != null)
         {
-            return Instantiate(CharacterToPrint, new Vector3(CharacterFolder.position.x + -3 - x * 1.5f, (x % 2) * 3 - 3.5f, CharacterFolder.position.z), Quaternion.identity, CharacterFolder);
+            return Instantiate(CharacterToPrint, new Vector3(CharacterFolder.position.x - x * 1.5f - 0.75f, (x % 2) * 3 - 3.5f, CharacterFolder.position.z), Quaternion.identity, CharacterFolder);
         }
         else
         {

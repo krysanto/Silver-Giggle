@@ -389,8 +389,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0024728498, y: 0.0018203016}
-  m_SizeDelta: {x: 57252, y: 27040}
+  m_AnchoredPosition: {x: 0.00056458, y: 0.00045824}
+  m_SizeDelta: {x: 64220, y: 27768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &121711197
 MonoBehaviour:
@@ -2846,7 +2846,7 @@ MonoBehaviour:
   EnemyController: {fileID: 614524512}
   Round: 1
   Gold: 3
-  Health: 20
+  Health: 5
   Healthshop: {fileID: 231296492}
   Healthfight: {fileID: 1436003206}
   Goldshop: {fileID: 2114032252}
@@ -4226,7 +4226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -240}
+  m_AnchoredPosition: {x: 271, y: -224}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432388646

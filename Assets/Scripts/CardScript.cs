@@ -52,7 +52,7 @@ public class CardScript : MonoBehaviour
             }
         }
         Vector3 myVector;
-        // changed the position of the character to fit the card
+        // changed the position of the character to fit the card (not completel due to lack of time)
         switch (option)
         {
             case 1: myVector = new Vector3(thisCard.position.x - 0.24f, -0.75f, thisCard.position.z - 1); break;

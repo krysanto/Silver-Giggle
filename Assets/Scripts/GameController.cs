@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
     {
         if (CharacterToPrint != null)
         {
-            return Instantiate(CharacterToPrint, new Vector3(CharacterFolder.position.x - x * 1.5f - 0.75f, (x % 2) * 3 - 3.5f, CharacterFolder.position.z), Quaternion.identity, CharacterFolder);
+            return Instantiate(CharacterToPrint, new Vector3(CharacterFolder.position.x - x * 1.2f - 0.75f, (x % 2) * 3 - 3.5f, CharacterFolder.position.z), Quaternion.identity, CharacterFolder);
         }
         else
         {
@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
     {
         if (EnemyToPrint != null)
         {
-            return Instantiate(EnemyToPrint, new Vector3(CharacterFolder.position.x + 3 + x * 1.5f, (x % 3) * 2 - 3.5f, CharacterFolder.position.z), Quaternion.Euler(new Vector3(0, 180, 0)), CharacterFolder);
+            return Instantiate(EnemyToPrint, new Vector3(CharacterFolder.position.x + 3 + x * 1.2f, (x % 3) * 2 - 3.5f, CharacterFolder.position.z), Quaternion.Euler(new Vector3(0, 180, 0)), CharacterFolder);
         } else
         {
             return null;

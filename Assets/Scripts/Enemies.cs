@@ -62,7 +62,7 @@ public class Enemies : MonoBehaviour
         List<Character> EnemyGroup = new List<Character>();
         int counter = 0;
 
-        int AmountOfEnemies = Random.Range(3, 7);
+        int AmountOfEnemies = Random.Range(3, 6);
         for (int iter = 0; iter < AmountOfEnemies; ++iter)
         {
             int RandomInt = Random.Range(1, 13);

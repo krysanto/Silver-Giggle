@@ -2729,8 +2729,8 @@ MonoBehaviour:
   EnemyList: []
   EnemiesDisplayed: []
   EnemyController: {fileID: 614524512}
-  Round: 1
-  Gold: 3
+  Round: 8
+  Gold: 300
   Health: 5
   Healthshop: {fileID: 231296492}
   Healthfight: {fileID: 1321930253}
